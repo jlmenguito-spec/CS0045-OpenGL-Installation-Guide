@@ -384,6 +384,102 @@ SOURCE CODE
 └── M11
 ```
 
+## c_pp_properties.json
+```json
+{
+    "configurations": [
+        {
+            "name": "MSYS2 UCRT64",
+            "compilerPath": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:\\msys64\\ucrt64\\include",
+                "C:\\msys64\\ucrt64\\include\\GL"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
+```
+
+## launch.json
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Build and Debug Active C++ File",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable GDB pretty-printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build active C++ file with FreeGLUT"
+        }
+    ]
+}
+```
+
+## tasks.json
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build active C++ file with FreeGLUT",
+            "type": "shell",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "-std=c++17",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-lfreeglut",
+                "-lopengl32",
+                "-lglu32"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compiles the currently active C++ file using MSYS2 UCRT64 GCC and FreeGLUT."
+        }
+    ]
+}
+```
+
 > [!IMPORTANT]
 > Create only one `.vscode` folder inside the main `SOURCE CODE` workspace. Do not create a separate `.vscode` folder inside every module.
 
