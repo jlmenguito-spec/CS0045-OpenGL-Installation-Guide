@@ -1,4 +1,4 @@
-# CS0045 Development Environment Setup Guide
+# CS0045 OpenGL Installation Guide
 
 This guide explains how to install and configure **MSYS2**, the **GCC C++ compiler**, **FreeGLUT**, and **Visual Studio Code** for CS0045 activities.
 
@@ -9,17 +9,17 @@ This guide explains how to install and configure **MSYS2**, the **GCC C++ compil
 
 ## Table of Contents
 
-1. #1-system-requirements
-2. #2-install-msys2
-3. #3-update-msys2
-4. #4-install-the-gcc-c-compiler
-5. #5-verify-the-compiler-in-vs-code
-6. #6-install-freeglut
-7. #7-verify-freeglut
-8. #8-verify-freeglut-from-windows
-9. #9-add-the-msys2-terminal-to-vs-code
-10. #10-create-the-cs0045-workspace
-11. #11-setup-checklist
+1. system-requirements
+2. install-msys2
+3. update-msys2
+4. install-the-gcc-c-compiler
+5. verify-the-compiler-in-vs-code
+6. install-freeglut
+7. verify-freeglut
+8. verify-freeglut-from-windows
+9. add-the-msys2-terminal-to-vs-code
+10. create-the-cs0045-workspace
+11. setup-checklist
 
 ---
 
@@ -169,6 +169,8 @@ The expected compiler location is:
 C:\msys64\ucrt64\bin\g++.exe
 ```
 
+<img width="622" height="404" alt="{9673A222-D47B-4143-A7E1-F027406164BE}" src="https://github.com/user-attachments/assets/9dc41237-2ee7-4d9e-b0cd-c3914a2e03f3" />
+
 > [!CAUTION]
 > Do not continue until `g++` is detected in the VS Code terminal.
 
@@ -191,6 +193,10 @@ Y
 ```
 
 The FreeGLUT package provides the required header files, import libraries, and runtime DLL.
+
+<img width="544" height="483" alt="{EEC8521A-BCB7-43DC-821F-9CF505913227}" src="https://github.com/user-attachments/assets/e1d43928-1a42-4584-b1d6-e5325a070163" />
+
+
 
 Important installed files include:
 
@@ -269,6 +275,9 @@ Expected result:
 True
 ```
 
+<img width="530" height="139" alt="{460EF32A-97E8-49FB-A77D-D534E823FE1C}" src="https://github.com/user-attachments/assets/f7254083-ccc8-4d16-9ecb-d3c23f4b2cd4" />
+
+
 > [!TIP]
 > If PowerShell returns `False`, verify that MSYS2 was installed in `C:\msys64` and that the FreeGLUT installation completed successfully.
 
@@ -313,6 +322,8 @@ Add the following configuration to the settings file:
     }
 }
 ```
+<img width="762" height="632" alt="{8FE411FF-5077-4684-B1DF-0BB4BA5CF7A7}" src="https://github.com/user-attachments/assets/89e7922e-1dbd-47ad-9da2-876c4cc1a72e" />
+
 
 > [!IMPORTANT]
 > If your `settings.json` file already contains other settings, do not add another pair of outer `{ }` braces. Add only the `"terminal.integrated.profiles.windows"` property inside the existing JSON object, and make sure the properties are separated by commas.
@@ -324,6 +335,9 @@ In Visual Studio Code, select:
 ```text
 Terminal → New Terminal → MSYS2 UCRT64
 ```
+
+<img width="516" height="114" alt="{2140830F-32D7-4E37-A523-4DD50B3AE279}" src="https://github.com/user-attachments/assets/c049952b-ade7-472e-8a66-c712942e86be" />
+
 
 You can now run MSYS2 UCRT64 commands directly inside Visual Studio Code.
 
